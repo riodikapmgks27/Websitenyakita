@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Websitenyakita</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="navbar.css">
+<link rel="stylesheet" href="section.css">
+<link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+</section>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="main.js"></script>
+
+
+</script>
+<script>
+  
+
+let images = [
+"img/website 2.jpg",
+"img/website 3.jpg",
+"img/website 4.jpg",
+"img/website 5.jpg",
+];
+
+let index = 0;
+
+function openImage(i){
+
+index = i;
+
+document.getElementById("popup").style.display = "flex";
+
+document.getElementById("popup-img").src = images[index];
+
+}
+
+function closeImage(){
+
+document.getElementById("popup").style.display = "none";
+
+}
+
+function slide(n){
+
+index += n;
+
+if(index < 0){
+index = images.length - 1;
+}
+
+if(index >= images.length){
+index = 0;
+}
+
+document.getElementById("popup-img").src = images[index];
+
+}
+
+</script>
+<script>
+
+const container = document.getElementById("layananContainer");
+const btnLeft = document.getElementById("btnLeft");
+const btnRight = document.getElementById("btnRight");
+
+btnRight.onclick = function(){
+
+container.scrollLeft += 320;
+
+}
+
+btnLeft.onclick = function(){
+
+container.scrollLeft -= 320;
+
+}
+
+window.addEventListener("DOMContentLoaded", function(){
+
+const container = document.getElementById("layananContainer");
+const left = document.getElementById("btnLeft");
+const right = document.getElementById("btnRight");
+
+right.addEventListener("click", function(){
+container.scrollBy({ left: 350, behavior: "smooth" });
+});
+
+left.addEventListener("click", function(){
+container.scrollBy({ left: -350, behavior: "smooth" });
+});
+
+});
+
+</script>
+<script>
+
+const track = document.querySelector('.slide-track');
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+
+let position = 0;
+
+next.onclick = () => {
+    position -= 320;
+    track.style.transform = `translateX(${position}px)`;
+}
+
+prev.onclick = () => {
+    position += 320;
+    track.style.transform = `translateX(${position}px)`;
+}
+
+</script>
+<script>
+
+const track = document.querySelector(".slide-track");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const cards = document.querySelectorAll(".card");
+
+let index = 0;
+const cardWidth = cards[0].offsetWidth + 20;
+
+nextBtn.addEventListener("click", () => {
+
+  if(index < cards.length - 3){
+    index++;
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
+
+});
+
+prevBtn.addEventListener("click", () => {
+
+  if(index > 0){
+    index--;
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
+
+});
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const slider = document.querySelector(".slide-track");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+nextBtn.addEventListener("click", function(){
+    slider.scrollBy({
+        left: 350,
+        behavior: "smooth"
+    });
+});
+
+prevBtn.addEventListener("click", function(){
+    slider.scrollBy({
+        left: -350,
+        behavior: "smooth"
+    });
+});
+
+});
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const slider = document.querySelector(".slide-track");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+const scrollAmount = 320;
+
+nextBtn.addEventListener("click", function(){
+    slider.scrollLeft += scrollAmount;
+});
+
+prevBtn.addEventListener("click", function(){
+    slider.scrollLeft -= scrollAmount;
+});
+
+});
+
+let images = [
+"img/Website 2.jpg",
+"img/Website 3.jpg",
+"img/Website 4.jpg",
+"img/Website 5.jpg",
+];
+
+let index = 0;
+
+function openImage(i){
+index = i;
+
+document.getElementById("popup").style.display="flex";
+document.getElementById("popup-img").src = images[index];
+}
+
+function closeImage(){
+document.getElementById("popup").style.display="none";
+}
+
+function slide(n){
+
+index += n;
+
+if(index < 0){
+index = images.length - 1;
+}
+
+if(index >= images.length){
+index = 0;
+}
+
+document.getElementById("popup-img").src = images[index];
+
+}
+
+</script>
+</script>
+<!-- ================= LIVE SUPPORT ================= -->
+
+<div class="live-support">
+
+<div class="chat-header">
+<span class="status"></span>
+Customer Service Terhubung
+</div>
+
+<div class="chat-body">
+<p>Halo 👋</p>
+<p>Ada yang bisa kami bantu?</p>
+
+<a href="https://wa.me/6282120993887?Hallo kak mau bertanya tanya mengenai website untuk keperluan bisnis?" target="_blank" class="chat-btn">
+Mulai Chat
+</a>
+
+<div class="notif-chat" id="notifChat">
+
+<p>👋 Halo! CS kami sedang online.</p>
+<p>Butuh bantuan membuat website?</p>
+
+<a href="https://wa.me/6282120993887?Hallo kak mau bertanya tanya mengenai website untuk keperluan bisnis" target="_blank">
+Mulai Chat
+</a>
+
+</div>
+<script>
+
+setTimeout(function(){
+
+document.getElementById("notifChat").style.display = "block";
+
+}, 4000); // muncul setelah 4 detik
+
+</script>
+</div>
+
+</div>
+
+<!-- tombol buka chat -->
+
+<div class="chat-toggle" onclick="toggleChat()">
+💬
+</div>
+<script>
+
+function toggleChat() {
+
+let chat = document.querySelector(".live-support");
+
+if(chat.style.display === "block"){
+chat.style.display = "none";
+}else{
+chat.style.display = "block";
+}
+
+}
+</script>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+<div class="container nav-container">
+<div class="logo">
+   <img src="img/WebsitenyaKita1.png" alt="Logo">
+    <a href="index.html" class="logo">Websitenyakita</a>
+</div>
+
+<nav id="nav-menu">
+
+<a href="#">Home</a>
+<a href="#tentang">Tentang Kami</a>
+<a href="#layanan">Layanan</a>
+<a href="#Website">Website</a>
+<a href="#hosting">Hosting</a>
+<a href="#solusi">Solusi</a>
+<a href="https://wa.me/6281234567890" target="_blank" class="btn-pesan">
+Pesan Sekarang
+</a>
+
+</nav>
+
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
+
+</header>
+</body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+<div class="hero-container">
+
+<div class="hero-text">
+
+<span class="label">
+Solusi Website Profesional
+</span>
+
+<h1 class="title">
+Bangun Website Bisnis Profesional Anda
+Bersama <span class="brand">Websitenyakita</span>
+</h1>
+
+<p class="desc">
+Kami membantu bisnis Anda hadir secara profesional di internet 
+melalui website modern, cepat, dan SEO Friendly sehingga 
+bisnis lebih dipercaya dan mudah ditemukan pelanggan.
+</p>
+
+<div class="hero-btn">
+
+<a href="#layanan" class="btn-primary">
+Lihat Layanan
+</a>
+
+<a href="#tentang" class="btn-outline">
+Tentang Kami
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="layanan" class="layanan">
+
+<h1>Paket Website</h1>
+<p>Pilih paket sesuai kebutuhan bisnis Anda</p>
+
+<div class="layanan-wrapper">
+
+<button class="arrow left" id="btnLeft">❮</button>
+
+<div class="layanan-container" id="layananContainer">
+
+<div class="card">
+<h3>UMKM Starter</h3>
+<p class="harga">Rp150.000</p>
+<ul>
+<li>✔ 1 Halaman (Landing Page)</li>
+<li>✔ Desain Sederhana & Rapi</li>
+<li>✔ Responsive & Mobile Friendly</li>
+<li>✔ SEO Basic</li>
+<li>✔ Hosting Pribadi</li>
+<li>✔ Cocok untuk usaha kecil</li>
+</ul>
+<a href="https://wa.me/6282120993887?saya+ingin+memesan+UMKM+bisnis" class="btn-primary">Pesan</a>
+</div>
+
+<div class="card">
+<h3>Basic Bisnis</h3>
+<p class="harga">Rp300.000</p>
+<ul>
+<li>✔ Landing Page</li>
+<li>✔ Desain Modern</li>
+<li>✔ Responsive & Mobile Friendly</li>
+<li>✔ Hosting Pribadi</li>
+<li>✔ Cocok untuk UMKM</li>
+</ul>
+<a href="https://wa.me/6282120993887?saya+ingin+memesan+basic+bisnis" class="btn-primary">Pesan</a>
+</div>
+
+<div class="card">
+<h3>Intermediate Bisnis</h3>
+<p class="harga">Rp500.000</p>
+<ul>
+<li>✔ 5–6 Halaman</li>
+<li>✔ Profil Usaha Profesional</li>
+<li>✔ Landing Page Lebih Optimal</li>
+<li>✔ Responsive Mobile</li>
+<li>✔ Hosting Pribadi</li>
+<li>✔ Cocok untuk bisnis berkembang</li>
+</ul>
+<a href="https://wa.me/6282120993887?saya+ingin+memesan+intermediate+bisnis" class="btn-primary">Pesan</a>
+</div>
+
+<div class="card premium">
+<h3>Expert Bisnis</h3>
+<p class="harga">Rp800.000</p>
+<ul>
+<li>✔ 5–8 Halaman</li>
+<li>✔ Profil Usaha Level Up</li>
+<li>✔ SEO Friendly & Responsive</li>
+<li>✔ Hosting Public</li>
+<li>✔ Maintenance 6 bulan</li>
+<li>✔ Cocok untuk branding bisnis</li>
+</ul>
+<a href="https://wa.me/6282120993887?saya+ingin+memesan+expert+bisnis" class="btn-primary">Pesan</a>
+</div>
+
+<div class="card premium">
+<h3>Company Website</h3>
+<p class="harga">Rp2.000.000</p>
+<ul>
+<li>✔ Request Fitur (Custom)</li>
+<li>✔ Desain Custom Profesional</li>
+<li>✔ Dashboard Admin</li>
+<li>✔ SEO Optimization</li>
+<li>✔ Maintenance 1 Tahun</li>
+<li>✔ Cocok untuk perusahaan</li>
+<a href="https://wa.me/6282120993887?saya+ingin+memesan+company+website" class="btn-primary">Pesan</a>
+</div>
+
+<<div class="card premium">
+<h3>Enterprise Website</h3>
+<p class="harga">Rp3.500.000</p>
+<ul>
+<li>✔ Unlimited Halaman*</li>
+<li>✔ Custom Design Full</li>
+<li>✔ Dashboard Admin</li>
+<li>✔ SEO Advanced</li>
+<li>✔ Maintenance 1 Tahun</li>
+<li>✔ Cocok untuk bisnis besar</li>
+</ul>
+<a href="https://wa.me/6282120993887?saya+ingin+memesan+enterprise+website" class="btn-primary">Pesan</a>
+</div>
+<div class="card premium">
+<h3>Project Company</h3>
+<p class="harga">Rp5.000.000</p>
+<ul>
+<li>✔ Unlimited Halaman*</li>
+<li>✔ Full Custom System</li>
+<li>✔ Dashboard Admin Lengkap</li>
+<li>✔ SEO Advanced + Optimasi</li>
+<li>✔ Maintenance 1 Tahun</li>
+<li>✔ Support Prioritas</li>
+</ul>
+<a href="https://wa.me/6282120993887?saya+ingin+memesan+enterprise+website" class="btn-primary">Pesan</a>
+</div>
+
+</div>
+
+<button class="arrow right" id="btnRight">❯</button>
+
+</div>
+</section>
+
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="Website" id="Website">
+
+<h1>Contoh Tampilan Website</h1>
+
+<div class="slider-container">
+
+<button class="prev">&#10094;</button>
+
+<div class="slider">
+<div class="slide-track">
+
+<div class="card" onclick="openImage(0)">
+<img src="img/Website Umkm.png">
+<p>Umkm Starter</p>
+</div>
+
+<div class="card" onclick="openImage(1)">
+<img src="img/Basic.jpeg">
+<p>Basic Bisnis</p>
+</div>
+
+<div class="card" onclick="openImage(2)">
+<img src="img/Intermediate.jpeg">
+<p>Intermediate Bisnis</p>
+</div>
+
+<div class="card" onclick="openImage(3)">
+<img src="img/Expert.jpeg">
+<p>Expert Bisnis</p>
+</div>
+
+<div class="card" onclick="openImage(4)">
+<img src="img/Company.jpeg">
+<p>Company Website</p>
+</div>
+<div class="card" onclick="openImage(5)">
+<img src="img/Enterprise.jpeg">
+<p>Enterprise Website</p>
+</div>
+<div class="card" onclick="openImage(6)">
+<img src="img/Project.jpeg">
+<p>Project Company</p>
+</div>
+
+
+</div>
+</div>
+
+<button class="next">&#10095;</button>
+
+</div>
+<section>
+  <!-- POPUP IMAGE -->
+<div class="image-popup" id="popup">
+
+<span class="close" onclick="closeImage()">&times;</span>
+
+<button class="prev2" onclick="slide(-1)">❮</button>
+
+<img id="popup-img">
+
+<button class="next2" onclick="slide(1)">❯</button>
+
+</div>
+</section>
+<!-- ================= Cara Kerja Kami================= -->
+ <section class="process" id="process">
+  <h2>Cara Kerja Kami</h2>
+  <p class="subtitle">Mudah, cepat, dan transparan sampai website kamu siap digunakan</p>
+
+  <div class="process-container">
+    
+    <div class="step">
+      <span>1</span>
+      <h3>Konsultasi</h3>
+      <p>Kamu ceritakan kebutuhan bisnis dan tujuan website kamu.</p>
+    </div>
+
+    <div class="step">
+      <span>2</span>
+      <h3>Diskusi & Paket</h3>
+      <p>Kami bantu arahkan desain dan fitur yang sesuai dengan bisnis kamu.</p>
+    </div>
+
+    <div class="step">
+      <span>3</span>
+      <h3>Pemilihan Order</h3>
+      <p>Kami kirimkan harga dan detail pengerjaan secara transparan.</p>
+    </div>
+
+    <div class="step">
+      <span>4</span>
+      <h3>Proses Pengerjaan</h3>
+      <p>Website mulai dibuat sesuai konsep yang sudah disepakati.</p>
+    </div>
+
+    <div class="step">
+      <span>5</span>
+      <h3>Revisi & Final</h3>
+      <p>Kamu bisa revisi sampai sesuai lalu website siap digunakan.</p>
+    </div>
+
+    <div class="step">
+      <span>6</span>
+      <h3>Order & Launch</h3>
+      <p>Website resmi online dan siap bantu bisnis kamu berkembang.</p>
+    </div>
+    <div class="step">
+  <span>7</span>
+  <h3>Maintenance</h3>
+  <p>Kami bantu maintenance website agar tetap aman, cepat, dan selalu update.</p>
+</div>
+
+<div class="step">
+  <span>8</span>
+  <h3>Pengembangan Lanjutan</h3>
+  <p>Siap upgrade fitur dan tampilan sesuai perkembangan bisnis kamu ke depan.</p>
+</div>
+  </div>
+</section>
+<!-- ================= TENTANG ================= -->
+
+<section id="tentang" class="tentang">
+
+<div class="tentang-box">
+
+<h2 class="tentang-title">Tentang Kami</h2>
+
+<div class="tentang-content">
+
+<p>
+<b>Websitenyakita</b> adalah digital agency yang membantu UMKM, startup, dan berbagai jenis bisnis berkembang melalui website modern, cepat, dan profesional.
+
+Kami percaya bahwa website bukan hanya sekadar tampilan, tetapi juga merupakan alat strategis untuk meningkatkan kepercayaan pelanggan, memperkuat branding, dan mendorong pertumbuhan bisnis secara berkelanjutan.
+</p>
+<p>
+<b>Fokus Kami</b> adalah mengedepankan bisnis Anda untuk <b>Go Digital</b> secara maksimal. Kami mengutamakan kualitas dan fungsi dalam setiap website yang kami buat, sehingga tidak hanya terlihat menarik, tetapi juga mampu bekerja secara optimal dalam mendukung kebutuhan bisnis Anda.
+Kami berkomitmen untuk menjadi partner digital terpercaya, membantu Anda bertransformasi ke dunia digital dan siap bersaing di era modern.
+<div class="tentang-highlight">
+
+<div class="highlight">
+<h3>100+</h3>
+<span>Project Website</span>
+</div>
+
+<div class="highlight">
+<h3>50+</h3>
+<span>Client Bisnis</span>
+</div>
+
+<div class="highlight">
+<h3>24/7</h3>
+<span>Support</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= HOSTING ================= -->
+
+<section id="hosting" class="hosting">
+
+<h1 class="section-title">Layanan Hosting</h1>
+<p class="section-subtitle">
+Hosting cepat, aman, dan stabil untuk website bisnis Anda
+</p>
+
+<div class="hosting-container">
+
+<div class="hosting-card">
+<h3>Basic Hosting</h3>
+<p class="price">Rp60.000 / bulan</p>
+
+<ul>
+<li>✔ 1 Website</li>
+<li>✔ Storage 5GB SSD</li>
+<li>✔ Bandwidth Standar</li>
+<li>✔ Free SSL (HTTPS)</li>
+<li>✔ 1 Database</li>
+<li>✔ 1 Email Account</li>
+<li>✔ Support via WhatsApp</li>
+<div class="discount">🏷️ 1 Tahun Hosting Hemat DISKON 20%</div>
+</ul>
+<a href="domain_basic/domain_basic.html" class="btn-hosting">Pesan Sekarang</a>
+</div>
+
+<div class="hosting-card popular">
+<h3>Business Hosting</h3>
+<p class="price">Rp120.000 / bulan</p>
+<ul>
+<li>✔ Hingga 2 Website</li>
+<li>✔ Storage 10GB SSD</li>
+<li>✔ Bandwidth Lebih Besar</li>
+<li>✔ Free SSL(HTTPS)</li>
+<li>✔ Maintenance 3 Bulan</li>
+<li>✔ Support Fast Response</li>
+
+<div class="discount">🏷️ 1 Tahun Hosting Hemat DISKON 20%</div>
+</ul>
+<a href="domain_bussines/domain_bussines.html" class="btn-hosting">Pesan Sekarang</a>
+</div>
+
+<div class="hosting-card  popular">
+<h3>Premium Hosting</h3>
+<p class="price">Rp180.000 / bulan</p>
+<ul>
+<li>✔ Hingga 2 Website</li>
+<li>>✔ Storage 20GB</li>
+<li>✔ Free SSL(HTTPS)</li>
+<li>✔ Desain Custom (lebih fleksibel)</li>
+<li>✔ Optimasi Kecepatan Website</li>
+<li>✔ Maintanance 3 Bulan</li>
+<li>✔ Support Prioritas</li>
+
+<div class="discount">🏷️ 1 Tahun Hosting Hemat DISKON 20%</div>
+</ul>
+<a href="domain_premium/domain_premium.html" class="btn-hosting">Pesan Sekarang</a>
+
+</div>
+
+<div class="hosting-card popular">
+<h3>Growth Hosting</h3>
+<p class="price">Rp300.000 / bulan</p>
+<ul>
+<li>✔ Hingga 3 Website</li>
+<li>✔ Storage 30GB</li>
+<li>✔ Free SSL (HTTPS)</li>
+<li>✔ Desain Lebih Profesional</li>
+<li>✔ Integrasi WhatsApp & Form</li>
+<li>✔ Backup Bulanan</li>
+<li>✔ Security Safety</li>
+<li>✔ Support Fast Response</li>
+<div class="discount">🏷️ 1 Tahun Hosting Hemat DISKON 20%</div>
+</ul>
+<a href="domain_growth/domain_growth.html" class="btn-hosting">Pesan Sekarang</a>
+</div>
+<div class="hosting-card">
+<h3>Advanced Hosting</h3>
+<p class="price">Rp400.000 / bulan</p>
+<ul>
+<li>✔ Hingga 5 Website</li>
+<li>✔ Storage 40GB</li>
+<li>✔ Free SSL (HTTPS Aman)</li>
+<li>✔ Desain Lebih Profesional</li>
+<li>✔ Integrasi WhatsApp & Form</li>
+<li>✔ Backup Bulanan</li>
+<li>✔ Security Safety</li>
+<li>✔ Support Fast Response</li>
+<div class="discount">🏷️ 1 Tahun Hosting Hemat DISKON 20%</div>
+</ul>
+<a href="domain_advanced/domain_advanced.html" class="btn-hosting">Pesan Sekarang</a>
+</div>
+
+<div class="hosting-card">
+<h3>Pro Hosting</h3>
+<p class="price">Rp500.000 / bulan</p>
+<ul>
+<li>✔ Hingga 5 Website</li>
+<li>✔ Storage 50GB</li>
+<li>✔ Free SSL</li>
+<li>✔ Desain Custom Full</li>
+<li>✔ Optimasi SEO Optimal</li>
+<li>✔ Backup Bulanan</li>
+<li>✔ Security Safety</li>
+<li>✔ Support Prioritas + Cepat</li>
+
+<div class="discount">🏷️ 1 Tahun Hosting Hemat DISKON 20%</div>
+</ul>
+<a href="domain_pro/domain_pro.html" class="btn-hosting">Pesan Sekarang</a>
+</div>
+
+</section>
+
+<!-- ================= SOLUSI DIGITAL ================= -->
+
+<section id="solusi" class="layanan">
+
+<h1 class="section-title">Solusi Digital Bisnis</h2>
+
+<p class="section-subtitle">
+Kami membantu bisnis berkembang melalui berbagai solusi digital modern
+</p>
+
+<div class="layanan-container">
+
+<div class="layanan-card">
+<h3>SEO Website</h3>
+<p>Optimasi website agar mudah ditemukan di Google.</p>
+</div>
+
+<div class="layanan-card">
+<h3>UI / UX Design</h3>
+<p>Desain tampilan website modern dan profesional.</p>
+</div>
+
+<div class="layanan-card">
+<h3>Digital Marketing</h3>
+<p>Promosi bisnis melalui strategi digital marketing.</p>
+</div>
+
+<div class="layanan-card">
+<h3>Maintenance Website</h3>
+<p>Perawatan website agar tetap aman dan stabil.</p>
+</div>
+
+<div class="layanan-card">
+<h3>Branding & Logo</h3>
+<p>Membangun identitas visual bisnis yang kuat.</p>
+</div>
+
+<div class="layanan-card">
+<h3>Landing Page Produk</h3>
+<p>Halaman khusus untuk meningkatkan penjualan.</p>
+</div>
+
+</div>
+</section>
+
+</section>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <!-- BRAND -->
+  <div class="footer-brand">
+    <h2>Websitenyakita</h2>
+    <img src="img/WebsitenyaKita1.png" class="brand-logo" alt="Logo">
+    <p class="brand-desc">
+      Jasa pembuatan website profesional untuk bisnis, UMKM, dan company profile modern. Membantu brand Anda tampil profesional di dunia digital.
+    </p>
+  </div>
+
+  <!-- Layanan & Kontak -->
+  <div class="footer-middle">
+    <div class="footer-box">
+      <h3>Layanan / Promosi</h3>
+      <ul class="footer-menu">
+        <li>Website UMKM</li>
+        <li>Company Profile</li>
+        <li>Toko Online</li>
+        <li>Landing Page</li>
+        <li>Portofolio</li>
+      </ul>
+    </div>
+
+    <div class="footer-box">
+      <h3>Kontak</h3>
+      <div class="contact-item">
+        <img src="img/Gmail.jpeg" class="contact-icon">
+        <a href="mailto:Websitenyakita@gmail.com">Websitenyakita@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <img src="img/Whatsapp.jpeg" class="contact-icon">
+        <a href="tel:081317376167">0813-1737-6167</a>
+      </div>
+      <div class="contact-item">
+        <img src="img/Instagram.jpeg" class="contact-icon">
+        <a href="https://www.instagram.com/websitenyakita" target="_blank">@websitenyakita</a>
+      </div>
+    </div>
+  </div>
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    © 2026 Websitenyakita. All rights reserved.
+  </div>
+</footer>
+</body>
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-menu");
+
+if(toggle && nav){
+toggle.addEventListener("click", function(){
+nav.classList.toggle("active");
+});
+}
+
+</script>
+<script src="main.js"></script>
+</section> 
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const btnLeft = document.getElementById("btnLeft");
+  const btnRight = document.getElementById("btnRight");
+  const container = document.getElementById("layananContainer");
+
+  if (!container || !btnLeft || !btnRight) return; // pastikan element ada
+
+  // Hitung lebar card + gap
+  const card = container.querySelector(".card");
+  if (!card) return;
+  const cardStyle = getComputedStyle(card);
+  const gap = parseInt(cardStyle.marginRight) || 25;
+  const scrollAmount = card.offsetWidth + gap;
+
+  // Tombol geser kanan
+  btnRight.addEventListener("click", () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  // Tombol geser kiri
+  btnLeft.addEventListener("click", () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  // Optional: disable tombol saat scroll di ujung
+  function checkButtons() {
+    btnLeft.disabled = container.scrollLeft <= 0;
+    btnRight.disabled = container.scrollLeft >= container.scrollWidth - container.clientWidth - 1;
+  }
+
+  checkButtons();
+  container.addEventListener('scroll', checkButtons);
+});
+</script>
+<script>
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popup-img");
+const cards = document.querySelectorAll(".Website .card img");
+let currentIndex = 0;
+
+// Fungsi buka popup
+function openImage(index){
+  currentIndex = index;
+  popup.style.display = "block";
+  popupImg.src = cards[currentIndex].src; // set src sesuai card
+}
+
+// Fungsi tutup popup
+function closeImage(){
+  popup.style.display = "none";
+}
+
+// Fungsi slide prev/next di popup
+function slide(direction){
+  currentIndex += direction;
+  if(currentIndex < 0) currentIndex = cards.length - 1; // loop ke akhir
+  if(currentIndex >= cards.length) currentIndex = 0;     // loop ke awal
+  popupImg.src = cards[currentIndex].src;
+}
+
+// Optional: klik di luar gambar popup untuk tutup
+popup.addEventListener("click", (e)=>{
+  if(e.target === popup) closeImage();
+});
+</script>
+<script>
+function adjustFooter() {
+  const body = document.body;
+  const html = document.documentElement;
+  const footer = document.querySelector('.footer');
+
+  const bodyHeight = Math.max(
+    body.scrollHeight, body.offsetHeight,
+    html.clientHeight, html.scrollHeight, html.offsetHeight
+  );
+
+  if(bodyHeight < window.innerHeight){
+    footer.style.marginTop = (window.innerHeight - bodyHeight) + 'px';
+  } else {
+    footer.style.marginTop = '0';
+  }
+}
+
+window.addEventListener('load', adjustFooter);
+window.addEventListener('resize', adjustFooter);
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const container = document.getElementById("layananContainer"); // container slider
+  const btnLeft = document.getElementById("btnLeft");
+  const btnRight = document.getElementById("btnRight");
+
+  if (!container || !btnLeft || !btnRight) return;
+
+  // hitung lebar card + gap
+  const card = container.querySelector(".card");
+  const style = getComputedStyle(card);
+  const gap = parseInt(style.marginRight) || 25;
+  const scrollAmount = card.offsetWidth + gap;
+
+  // tombol geser kanan
+  btnRight.addEventListener("click", () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  // tombol geser kiri
+  btnLeft.addEventListener("click", () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  // optional: disable tombol jika di ujung
+  function checkButtons() {
+    btnLeft.disabled = container.scrollLeft <= 0;
+    btnRight.disabled = container.scrollLeft >= container.scrollWidth - container.clientWidth - 1;
+  }
+
+  checkButtons();
+  container.addEventListener('scroll', checkButtons);
+  window.addEventListener('resize', checkButtons);
+});
+</script>
+
+</body>
+</html>
