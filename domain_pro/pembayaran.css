@@ -1,0 +1,159 @@
+/* ================= Awal CSS: ubah latar belakang pembayaran ================= */
+.pembayaran-input {
+    background-color: #6498ed;  /* biru seperti input domain */
+    color: #fff;                /* teks putih supaya terbaca */
+    border: 1px solid #517acb;  /* border biru gelap */
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+
+    /* Untuk mengurangi style default mobile di beberapa browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Dropdown option agar tetap terlihat */
+.pembayaran-input option {
+    background-color: #6498ed;
+    color: #fff;
+}
+
+/* Label tetap rapi */
+.pembayaran-input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #fff;
+}
+#infoPembayaran{
+background:#f8f9fa;
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+.bank-card{
+background:#f8f9fa;
+padding:15px;
+border-radius:12px;
+border:1px solid #ddd;
+margin-top:10px;
+text-align:left;
+}
+
+.bank-header{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+}
+
+.bank-logo{
+width:35px;
+height:35px;
+border-radius:50%;
+object-fit:contain;
+background:white;
+padding:5px;
+border:1px solid #eee;
+}
+
+.bank-rek{
+font-size:18px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.bank-nama{
+font-size:13px;
+color:#555;
+margin-bottom:10px;
+}
+
+.btn-salin{
+background:#007bff;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+}
+
+.btn-salin:hover{
+background:#0056b3;
+}
+.hidden{
+    display:none;
+}
+/* Styling umum untuk semua kolom pembayaran */
+.pembayaran-input {
+    background-color: #f0f4f8; /* Bisa diganti sesuai tema */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Label agar rapi */
+.pembayaran-input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+/* Semua input pembayaran biru */
+.pembayaran-input {
+    background-color: #6498ed;  /* warna biru */
+    color: #fff;                /* teks putih supaya terbaca */
+    border: 1px solid #517acb;  /* border biru gelap */
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+
+    /* Hilangkan style default mobile supaya lebih konsisten */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Dropdown options juga diberi background biru agar saat dibuka terlihat serasi */
+.pembayaran-input option {
+    background-color: #6498ed;
+    color: #fff;
+}
+
+/* Label tetap rapi */
+.pembayaran-input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #fff;
+}
+input.pembayaran-input {
+    background-color: #6498ed; /* biru */
+    color: #fff;
+    border: 1px solid #517acb;
+    border-radius: 8px;
+    padding: 10px;
+}
+select.pembayaran-input {
+    background-color: #6498ed;
+    color: #fff;
+    -webkit-appearance: none; /* iOS/Chrome */
+    -moz-appearance: none;    /* Firefox */
+    appearance: none;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #517acb;
+}
