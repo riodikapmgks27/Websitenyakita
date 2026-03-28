@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Pembayaran</title>
+<link rel="stylesheet" href="invoice.css">
+<script src="invoice.js" defer></script>
+</head>
+<body>
+<div class="container">
+<h2>Invoice Pesanan Anda</h2>
+
+<!-- DETAIL PESANAN -->
+<div class="box">
+    <div class="item">🌐 Domain: <strong id="domain"></strong></div>
+    <div class="item" id="ketDomain"></div>
+
+    <div class="item">📦 Hosting: <strong id="hosting"></strong></div>
+    <div class="item" id="ketHosting"></div>
+
+    <div class="item">⏳ Durasi: <strong id="durasi"></strong></div>
+    <div class="item" id="ketDurasi"></div>
+
+   <!-- TABEL INVOICE -->
+<table id="invoiceTable">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Harga</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Domain <span id="domainItem"></span></td>
+            <td>1</td>
+            <td id="hargaDomain">Rp0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Hosting <span id="hostingItem"></span></td>
+            <td>1</td>
+            <td id="hargaHosting">Rp0</td>
+        </tr>
+        <tr class="total-row">
+            <td colspan="3">Total</td>
+            <td id="totalHarga">Rp0</td>
+        </tr>
+    </tbody>
+</table>
+<input type="file" id="buktiUpload">
+<button id="btnUpload">Unggah Bukti</button>
+<p id="statusUpload"></p>
+<div id="previewBukti"></div>
+
+<script>
+document.getElementById("btnUpload").addEventListener("click", function () {
+
+  const fileInput = document.getElementById("buktiUpload");
+  const file = fileInput.files[0];
+  const status = document.getElementById("statusUpload");
+
+  if (!file) {
+    status.innerText = "❌ Upload bukti dulu!";
+    status.style.color = "red";
+    return;
+  }
+
+  const fileName = file.name.toLowerCase();
+
+  // 🔥 BLOK TOTAL VIDEO (MP4, MKV, dll)
+  if (
+    file.type.startsWith("video/") ||
+    fileName.endsWith(".mp4") ||
+    fileName.endsWith(".mkv") ||
+    fileName.endsWith(".avi")
+  ) {
+    status.innerText = "❌ Tidak boleh upload VIDEO!";
+    status.style.color = "red";
+
+    fileInput.value = ""; // reset
+    return; // ⛔ STOP TOTAL (tidak lanjut)
+  }
+
+  // 🔥 HANYA IZINKAN GAMBAR
+  if (!file.type.startsWith("image/")) {
+    status.innerText = "❌ Hanya boleh gambar (JPG/PNG)";
+    status.style.color = "red";
+
+    fileInput.value = "";
+    return;
+  }
+
+  // 🔥 BARU BOLEH DIPROSES
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const base64 = e.target.result;
+
+    // 🔹 simpan hanya kalau valid
+    localStorage.setItem("buktiGambar", base64);
+
+    status.innerText = "✅ Upload berhasil!";
+    status.style.color = "green";
+
+    setTimeout(() => {
+      window.location.href = "status.html";
+    }, 1200);
+  };
+
+  reader.readAsDataURL(file);
+});
+</script>
+<script>
+document.getElementById("btnUpload").addEventListener("click", function () {
+
+    const file = document.getElementById("buktiUpload").files[0];
+    const status = document.getElementById("statusUpload");
+
+    if (!file) {
+        status.innerText = "❌ Upload bukti dulu!";
+        status.style.color = "red";
+        return;
+    }
+
+    // 🔥 AMBIL DARI TABEL (PASTI ADA NILAINYA)
+    const domain = document.getElementById("domainItem").innerText;
+    const hosting = document.getElementById("hostingItem").innerText;
+    const total = document.getElementById("totalHarga").innerText;
+
+    // Durasi tetap dari atas
+    const durasi = document.getElementById("durasi").innerText;
+
+    // Debug
+    console.log("DATA:", domain, hosting, durasi, total);
+
+    // Simpan
+    localStorage.setItem("inv_domain", domain);
+    localStorage.setItem("inv_hosting", hosting);
+    localStorage.setItem("inv_durasi", durasi);
+    localStorage.setItem("inv_total", total);
+    localStorage.setItem("inv_status", "Menunggu Verifikasi");
+
+    // Redirect
+    window.location.href = "status.html";
+
+});
+</script>
+<script>
+if(localStorage.getItem("buktiGambar")?.startsWith("data:video/")){
+  localStorage.removeItem("buktiGambar");
+}
+</script>
+</body>
+</html>

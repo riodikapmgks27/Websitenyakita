@@ -1,0 +1,154 @@
+/* ======================= BODY ======================= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4ff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ======================= CONTAINER INVOICE ======================= */
+.container {
+    background-color: #fff;
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 8px solid #6498ed;
+}
+
+/* ======================= HEADER ======================= */
+h2 {
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 5px;
+}
+
+h4 {
+    text-align: center;
+    color: #555;
+    margin-top: 0;
+}
+
+/* ======================= PESANAN ======================= */
+.box {
+    border: 1px solid #cfd8dc;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f9fafe;
+}
+
+/* LABEL ITEM ================= */
+.item {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* TOTAL ================= */
+.total {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #0d47a1;
+}
+
+/* ======================= TABEL ======================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    border: 1px solid #b0bec5;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+table th {
+    background-color: #6498ed;
+    color: #fff;
+}
+
+.total-row td {
+    background-color: #bbdefb;
+    font-weight: bold;
+    color: #0d47a1;
+}
+
+/* ======================= PAYMENT ======================= */
+#detailMetode {
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    background-color: #e3f2fd;
+}
+
+input[type="file"], button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0d47a1;
+}
+
+.status {
+    font-weight: bold;
+    margin-top: 5px;
+    color: #1a237e;
+}
+
+/* ======================= BANK/EWALLET ======================= */
+.bank-card {
+    background: #e3f2fd;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #90caf9;
+    margin-top: 10px;
+}
+
+.bank-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bank-logo {
+    width: 35px;
+    height: auto;
+}
+
+/* RESPONSIVE ================= */
+@media screen and (max-width: 600px) {
+    table th, table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+    input[type="file"], button {
+        font-size: 14px;
+    }
+}

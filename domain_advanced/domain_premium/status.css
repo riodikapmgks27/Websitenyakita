@@ -1,0 +1,104 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #2b7cff, #6fa4ff);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CONTAINER */
+.container{
+    width:100%;
+    max-width:500px;
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* TITLE */
+h2{
+    text-align:center;
+    color:#2b7cff;
+    margin-bottom:20px;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+th{
+    background:#2b7cff;
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+td:last-child{
+    text-align:right;
+    font-weight:500;
+}
+
+.total td{
+    font-weight:bold;
+}
+
+/* STATUS */
+.status-box{
+    margin-top:15px;
+    text-align:center;
+    font-weight:bold;
+    color:#e67e22;
+}
+
+/* PETUNJUK */
+.info-box{
+    margin-top:15px;
+    padding:15px;
+    background:#f8f9fa;
+    border-radius:10px;
+    font-size:14px;
+}
+
+.info-box ul{
+    margin-top:8px;
+    padding-left:18px;
+}
+
+.info-box li{
+    margin-bottom:6px;
+}
+
+/* BUTTON */
+.btn-wa{
+    display:block;
+    margin-top:20px;
+    background:#25D366;
+    color:white;
+    text-align:center;
+    padding:14px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-wa:hover{
+    background:#1ebe5d;
+    transform:scale(1.03);
+}

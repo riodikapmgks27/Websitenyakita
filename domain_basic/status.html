@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Status Pesanan</title>
+<link rel="stylesheet" href="status.css">
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Status Pesanan</title>
+<link rel="stylesheet" href="status.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Status Pesanan</h2>
+
+    <!-- TABEL -->
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Keterangan</th>
+        </tr>
+        <tr>
+            <td>Domain</td>
+            <td id="domain"></td>
+        </tr>
+        <tr>
+            <td>Hosting</td>
+            <td id="hosting"></td>
+        </tr>
+        <tr>
+            <td>Durasi</td>
+            <td id="durasi"></td>
+        </tr>
+        <tr class="total">
+            <td>Total</td>
+            <td id="total"></td>
+        </tr>
+    </table>
+
+    <!-- PETUNJUK -->
+    <div class="info-box">
+        <p><b>Petunjuk:</b></p>
+        <ul>
+            <li>Lakukan pembayaran sesuai total invoice</li>
+            <li>Upload bukti pembayaran (foto / screenshot)</li>
+            <li>Klik tombol WhatsApp di bawah</li>
+            <li>Kirim bukti ke admin</li>
+        </ul>
+    </div>
+
+    <!-- BUTTON -->
+    <a id="btnWA" class="btn-wa" target="_blank">
+        Verifikasi via WhatsApp
+    </a>
+</div>
+
+<script>
+const domain = localStorage.getItem("inv_domain");
+const hosting = localStorage.getItem("inv_hosting");
+const durasi = localStorage.getItem("inv_durasi");
+const total = localStorage.getItem("inv_total");
+
+document.getElementById("domain").innerText = domain || "-";
+document.getElementById("hosting").innerText = hosting || "-";
+document.getElementById("durasi").innerText = durasi || "-";
+document.getElementById("total").innerText = total || "-";
+
+// WA
+const nomor = "6281317376167";
+const pesan = `Halo admin,%0A%0ASaya sudah bayar:%0A` +
+              `Domain: ${domain}%0A` +
+              `Hosting: ${hosting}%0A` +
+              `Durasi: ${durasi}%0A` +
+              `Total: ${total}`;
+
+document.getElementById("btnWA").href =
+`https://wa.me/${nomor}?text=${pesan}`;
+</script>
+
+</body>
+</html>
+<script>
+// Ambil data dari invoice
+const domain = localStorage.getItem("inv_domain");
+const hosting = localStorage.getItem("inv_hosting");
+const durasi = localStorage.getItem("inv_durasi");
+const total = localStorage.getItem("inv_total");
+const status = localStorage.getItem("inv_status");
+
+// Tampilkan ke tabel
+document.getElementById("domain").innerText = domain || "-";
+document.getElementById("hosting").innerText = hosting || "-";
+document.getElementById("durasi").innerText = durasi || "-";
+document.getElementById("total").innerText = total || "-";
+
+// Status
+document.getElementById("statusText").innerText = "🟠 " + status;
+
+// WhatsApp
+const nomor = "6281234567890";
+
+const pesan = `Halo admin,%0A%0ASaya sudah melakukan pembayaran:%0A` +
+              `Domain: ${domain}%0A` +
+              `Hosting: ${hosting}%0A` +
+              `Durasi: ${durasi}%0A` +
+              `Total: ${total}%0A%0A` +
+              `Mohon verifikasi.`;
+
+document.getElementById("btnWA").href =
+    `https://wa.me/${nomor}?text=${pesan};
+</script>
+<script>
+// Ambil dari invoice
+const domain = localStorage.getItem("inv_domain");
+const hosting = localStorage.getItem("inv_hosting");
+const durasi = localStorage.getItem("inv_durasi");
+const total = localStorage.getItem("inv_total");
+
+// Debug (penting)
+console.log(domain, hosting, durasi, total);
+
+// Tampilkan
+document.getElementById("domain").innerText = domain || "-";
+document.getElementById("hosting").innerText = hosting || "-";
+document.getElementById("durasi").innerText = durasi || "-";
+document.getElementById("total").innerText = total || "-";
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pemilihan Domain & Hosting</title>
+
+<link rel="stylesheet" href="domain.css">
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#3a7bd5,#00d2ff);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+width:100%;
+max-width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+h1{
+margin-bottom:10px;
+font-size:22px;
+}
+
+p{
+color:#666;
+margin-bottom:20px;
+font-size:14px;
+}
+
+input, select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+.package{
+border:2px solid #007bff;
+padding:15px;
+border-radius:10px;
+background:#eef5ff;
+margin:15px 0;
+}
+
+.total{
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+}
+
+button{
+margin-top:15px;
+width:100%;
+padding:12px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+/* MOBILE */
+@media(max-width:480px){
+.container{
+padding:20px;
+}
+h1{
+font-size:20px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Pilih Domain & Hosting</h1>
+<p>Mulai website Anda sekarang</p>
+
+<!-- DOMAIN -->
+<input type="text" id="domainName" placeholder="contoh: websitenyakita">
+
+<select id="domainExt">
+<option value=".com">.com (Rp60.500)</option>
+<option value=".id">.id (Rp43.200)</option>
+<option value=".co.id">.co.id (Rp79.300)</option>
+<option value=".my.id">.my.id (Rp23.500)</option>
+</select>
+
+<!-- HOSTING (FIX BASIC) -->
+<div class="package">
+<strong>Advanced Hosting</strong><br>
+Rp400.000 / bulan
+</div>
+
+<!-- DURASI -->
+<select id="durasi">
+<option value="1">1 Bulan</option>
+<option value="3">3 Bulan</option>
+<option value="6">6 Bulan</option>
+<option value="12">12 Bulan (Hemat 20%)</option>
+</select>
+
+<div class="total" id="total">Total: Rp0</div>
+
+<button onclick="checkout()">Lanjutkan</button>
+
+</div>
+
+<script>
+const hostingHarga = 400000;
+const hostingNama = "Advanced Hosting";
+
+const hargaDomain = {
+".com":60500,
+".id":43200,
+".co.id":79300,
+".my.id":23500
+};
+
+// HITUNG TOTAL
+function hitungTotal(){
+let ext = document.getElementById("domainExt").value;
+let durasi = parseInt(document.getElementById("durasi").value);
+
+let totalHosting = hostingHarga * durasi;
+
+// diskon 12 bulan
+if(durasi === 12){
+    totalHosting *= 0.8;
+}
+
+let total = hargaDomain[ext] + totalHosting;
+
+// tampilkan
+document.getElementById("total").innerText =
+"Total: Rp" + Math.round(total).toLocaleString();
+
+// simpan angka (opsional)
+document.getElementById("total").dataset.value = Math.round(total);
+}
+
+
+// AUTO UPDATE
+document.getElementById("domainExt").addEventListener("change", hitungTotal);
+document.getElementById("durasi").addEventListener("change", hitungTotal);
+
+// LOAD
+window.onload = hitungTotal;
+
+
+// ✅ CHECKOUT (SUDAH FIX)
+function checkout(){
+
+// paksa hitung ulang
+hitungTotal();
+
+let domain = document.getElementById("domainName").value;
+let ext = document.getElementById("domainExt").value;
+let durasi = document.getElementById("durasi").value;
+let total = document.getElementById("total").innerText;
+
+if(domain === ""){
+alert("Masukkan nama domain terlebih dahulu!");
+return;
+}
+
+// 🔥 KETERANGAN DOMAIN
+let ketDomain = ` ${domain}${ext}`;
+
+// 🔥 KETERANGAN HOSTING
+let ketHosting = `Paket ${hostingNama} meliputi 5 website, 40GB storage, Speed Boost,Costum Design,SSL Secure,Maintenance,Security Safety dan Support fast response.`;
+// 🔥 KETERANGAN DURASI
+let ketDurasi = "";
+
+if(durasi == 1){
+ketDurasi = "Aktif 1 bulan.";
+}
+else if(durasi == 12){
+ketDurasi = "Aktif 12 bulan (Hemat 20%).";
+}
+else{
+ketDurasi = `Aktif ${durasi} bulan`;
+}
+// SIMPAN
+localStorage.setItem("domain", domain + ext);
+localStorage.setItem("hosting", hostingNama);
+localStorage.setItem("durasi", durasi);
+localStorage.setItem("total", total);
+localStorage.setItem("ketDomain", ketDomain);
+localStorage.setItem("ketHosting", ketHosting);
+
+// PINDAH HALAMAN
+window.location.href = "pembayaran.html";
+}
+</script>
+<script>
+<link rel="stylesheet" href="css/pembayaran.css">
+</script>
+
+
+</body>
+</html>

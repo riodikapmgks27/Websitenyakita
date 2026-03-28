@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" href="domain_basic.css">
+    <link rel="stylesheet" href="pembayaran.css">
+    <link rel="stylesheet" href="pembayaran.js>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f5f7fa;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+padding:20px;
+}
+
+.container{
+background:white;
+padding:25px;
+border-radius:12px;
+width:100%;
+max-width:420px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.box{
+border:1px solid #ddd;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.item{
+margin:5px 0;
+font-size:14px;
+}
+
+.total{
+font-weight:bold;
+font-size:18px;
+margin-top:10px;
+}
+
+.features{
+font-size:13px;
+color:#555;
+margin-top:8px;
+}
+
+select{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:6px;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:12px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+background:#0056b3;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Detail Pesanan</h2>
+
+<div class="box">
+<div class="item">🌐 Domain: <strong id="domain"></strong></div>
+<div id="ketDomain"></div>
+<div class="item">📦 Hosting: <strong>Premium Hosting</strong></div>
+<div id="ketHosting"></div>
+<div class="item">⏳ Durasi: <strong id="durasi"></strong>
+<div id="ketDurasi"></div>
+</div>
+
+<div class="total" id="total"></div>
+<div class="payment-section">
+
+ <!-- Pilihan metode -->
+<select id="metode" onchange="tampilDetailMetode(this.value)">
+    <option value="">Pilih Metode</option>
+    <option value="bank">Bank Transfer</option>
+    <option value="ewallet">E-Wallet</option>
+</select>
+
+<!-- Tempat detail pembayaran -->
+<div id="detailMetode"></div>
+
+  <!-- Container sub-metode & detail -->
+  <div id="subMetode" class="hidden"></div>
+  <div id="detailBayar" class="hidden"></div>
+  <div id="detailPayPal"></div>
+</div>
+
+<!-- TEMPAT INFO -->
+<div id="infoPembayaran" style="margin-top:15px;"></div>
+<button onclick="lanjutInvoice()">Bayar Sekarang</button>
+
+</div>
+
+<script>
+function lanjutInvoice(){
+let metode = document.getElementById("metode").value;
+let hasilMetode = "";
+
+if(metode === "bank"){
+let bank = document.getElementById("pilihBank")?.value;
+
+if(!bank){
+alert("Pilih bank dulu!");
+return;
+}
+
+hasilMetode = "Transfer Bank: " + bank;
+}
+else{
+let dompet = document.getElementById("pilihEwallet")?.value;
+
+if(!dompet){
+alert("Pilih dompet dulu!");
+return;
+}
+
+hasilMetode = "E-Wallet: " + dompet;
+}
+
+localStorage.setItem("metode", hasilMetode);
+
+window.location.href = "invoice.html";
+}
+</script>
+<script>
+ const info = document.getElementById("infoPembayaran");
+
+document.getElementById("metode").addEventListener("change", tampilMetode);
+window.onload = tampilMetode;
+
+function tampilMetode(){
+let metode = document.getElementById("metode").value;
+
+// 🔹 BANK
+if(metode === "bank"){
+info.innerHTML = `
+<div style="background:#f8f9fa;padding:12px;border-radius:8px;border:1px solid #ddd;">
+<b>Transfer Bank</b><br><br>
+
+<select id="pilihBank" onchange="pilihBank()">
+<option value="">-- Pilih Bank --</option>
+<option value="BCA">Bank BCA</option>
+<option value="BRI">Bank BRI</option>
+<option value="Mandiri">Bank Mandiri</option>
+<option value="Paypal">PayPal</option>
+</select>
+
+<div id="detailBank" style="margin-top:10px;"></div>
+</div>
+`;
+}
+
+// 🔹 E-WALLET
+else if(metode === "ewallet"){
+info.innerHTML = `
+<div style="background:#f8f9fa;padding:12px;border-radius:8px;border:1px solid #ddd;">
+<b>Dompet Digital</b><br><br>
+
+<select id="pilihEwallet" onchange="pilihDompet()">
+<option value="">-- Pilih Dompet --</option>
+<option value="Dana">Dana</option>
+<option value="Ovo">Ovo</option>
+<option value="Gopay">Gopay</option>
+<option value="ShopeePay">ShopeePay</option>
+<option value="Qris">Qris</option>
+</select>
+
+<div id="detailEwallet" style="margin-top:10px;"></div>
+</div>
+`;
+}
+}
+
+// 🔥 DETAIL BANK
+function pilihBank(){
+let bank = document.getElementById("pilihBank").value;
+let detail = document.getElementById("detailBank");
+
+if(bank === "BCA"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" class="bank-logo">
+        <strong>Bank BCA</strong>
+    </div>
+
+    <div class="bank-rek" id="rek">0661940386</div>
+    <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+    <button class="btn-salin" onclick="copyRek()">📋 Salin No Rekening</button>
+</div>
+`;
+}
+
+else if(bank === "BRI"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+       <img src="img/bri.png"class="bank-logo">
+        <strong>Bank BRI</strong>
+    </div>
+
+    <div class="bank-rek" id="rek">722801010163504</div>
+    <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+    <button class="btn-salin" onclick="copyRek()">📋 Salin No Rekening</button>
+</div>
+`;
+}
+
+else if(bank === "Mandiri"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg" class="bank-logo">
+        <strong>Bank Mandiri</strong>
+    </div>
+
+    <div class="bank-rek" id="rek"> 567002319</div>
+    <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+    <button class="btn-salin" onclick="copyRek()">📋 Salin No Rekening</button>
+</div>
+`;
+}
+else if(bank === "Paypal"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+        <img src="img/paypal.png" class="bank-logo">
+        <strong>Paypal</strong>
+    </div>
+
+    <div class="bank-rek" id="rek"> FT6QPLKKX4M8G</div>
+    <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+    <button class="btn-salin" onclick="copyRek()">📋 Salin No Rekening</button>
+</div>
+`;
+}
+}
+
+
+// 🔥 DETAIL E-WALLET
+function pilihDompet(){
+let dompet = document.getElementById("pilihEwallet").value;
+let detail = document.getElementById("detailEwallet");
+
+if(dompet === "Dana"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+        <img src="img/Dana.png"class="bank-logo">
+        <strong>DANA</strong>
+    </div>
+
+    <div class="bank-rek" id="rek">08131373761617</div>
+    <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+    <button class="btn-salin" onclick="copyRek()">📋 Salin Nomor</button>
+</div>
+`;
+}
+
+else if(dompet === "Ovo"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+        <img src="img/OVO.png" class="bank-logo">
+        <strong>OVO</strong>
+    </div>
+
+    <div class="bank-rek" id="rek">081317376167</div>
+    <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+    <button class="btn-salin" onclick="copyRek()">📋 Salin Nomor</button>
+</div>
+`;
+}
+
+else if(dompet === "Gopay"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+        <img src="img/Gopay.png" class="bank-logo">
+        <strong>Gopay</strong>
+    </div>
+
+    <div class="bank-rek" id="rek">0813137376167</div>
+    <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+    <button class="btn-salin" onclick="copyRek()">📋 Salin Nomor</button>
+</div>
+`;
+}
+else if(dompet === "ShopeePay"){
+    detail.innerHTML = `
+    <div class="bank-card">
+        <div class="bank-header">
+            <img src="img/Shopepay.png" class="bank-logo">
+            <strong>ShopeePay</strong>
+        </div>
+
+        <div class="bank-rek" id="rek">0081317376167</div>
+        <div class="bank-nama">A/N RioDikaPamungkas</div>
+
+        <button class="btn-salin" onclick="copyRek()">📋 Salin Nomor</button>
+    </div>
+    `;
+}
+
+else if(dompet === "Qris"){
+detail.innerHTML = `
+<div class="bank-card">
+    <div class="bank-header">
+        <img src="img/qris.png" class="bank-logo">
+        <strong>QRIS</strong>
+    </div>
+
+    <div class="RioDikaPamungkas">Scan QR Code untuk pembayaran</div>
+
+    <img src="img/Scan.png" style="width:100%;margin-top:10px;border-radius:8px;">
+</div>
+`;
+}
+}
+
+</script>
+<script>
+function copyRek(){
+let rek = document.getElementById("rek").innerText;
+
+let temp = document.createElement("textarea");
+temp.value = rek;
+document.body.appendChild(temp);
+
+temp.select();
+document.execCommand("copy");
+
+document.body.removeChild(temp);
+
+alert("✔ Nomor rekening berhasil disalin");
+}
+
+</script>
+<script>
+function formatRupiah(angka){
+  return new Intl.NumberFormat("id-ID").format(Math.round(angka));
+}
+
+// 🔹 ambil data dari order
+let domain = localStorage.getItem("domain") || "-";
+let hosting = localStorage.getItem("hosting") || "-";
+let durasi = localStorage.getItem("durasi") || "-";
+let total = parseInt(localStorage.getItem("total")) || 0;
+let ketDomain = localStorage.getItem("ketDomain") || "-";
+let ketHosting = localStorage.getItem("ketHosting") || "-";
+
+// 🔹 tampilkan detail
+document.getElementById("domain").innerText = domain;
+
+document.getElementById("ketDomain").innerText = ketDomain;
+
+document.getElementById("ketHosting").innerText = ketHosting;
+
+document.getElementById("durasi").innerText = durasi + " Bulan";
+
+document.addEventListener("DOMContentLoaded", function(){
+
+function formatRupiah(angka){
+  return new Intl.NumberFormat("id-ID").format(angka);
+}
+
+// 🔹 ambil data mentah
+let totalRaw = localStorage.getItem("total");
+
+// 🔥 DEBUG
+console.log("TOTAL RAW:", totalRaw);
+
+// 🔹 bersihin kalau ada "Rp"
+let total = 0;
+
+if(totalRaw){
+  total = Number(totalRaw.toString().replace(/[^0-9]/g, ""));
+}
+
+// 🔹 tampilkan
+document.getElementById("total").innerText =
+  "Total: Rp " + formatRupiah(total);
+
+document.getElementById("totalBayar").value =
+  "Rp " + formatRupiah(total);
+
+// 🔹 tampilkan di transfer (kalau ada)
+let transfer = document.getElementById("totalTransfer");
+if(transfer){
+  transfer.innerText = "Total Bayar: Rp " + formatRupiah(total);
+}
+
+});
+</script>
+
+</body>
+</html>
