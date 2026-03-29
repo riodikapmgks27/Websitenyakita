@@ -292,6 +292,7 @@ chat.style.display = "block";
 }
 
 }
+
 </script>
 
 <!-- ================= NAVBAR ================= -->
@@ -311,16 +312,14 @@ chat.style.display = "block";
 <a href="#Website">Website</a>
 <a href="#hosting">Hosting</a>
 <a href="#solusi">Solusi</a>
-  <a href="#kontak">Kontak</a>
+<a href="#kontak">Kontak</a>
 <a href="https://wa.me/6281234567890" target="_blank" class="btn-pesan">
 Pesan Sekarang
 </a>
 
 </nav>
 
-<div class="menu-toggle" id="menu-toggle">
-☰
-</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 </header>
 </body>
@@ -815,7 +814,7 @@ Kami membantu bisnis berkembang melalui berbagai solusi digital modern
   </div>
 
   <!-- Layanan & Kontak -->
-  <div class="footer-box" id="kontak">
+<div class="footer-box" id="kontak">
   <div class="footer-middle">
     <div class="footer-box">
       <h3>Layanan / Promosi</h3>
@@ -827,12 +826,12 @@ Kami membantu bisnis berkembang melalui berbagai solusi digital modern
         <li>Portofolio</li>
       </ul>
     </div>
-    
+
     <div class="footer-box">
       <h3>Kontak</h3>
       <div class="contact-item">
         <img src="img/Gmail.jpeg" class="contact-icon">
-        <a href="https://mail.google.com/mail/?view=cm&to=websitenyakita@gmail.com">Websitenyakita@gmail.com</a>
+        <a href="https://mail.google.com/mail/?view=cm&to=websitenyakita@gmail.com" target="_blank">Websitenyakita@gmail.com</a>
       </div>
       <div class="contact-item">
         <img src="img/Whatsapp.jpeg" class="contact-icon">
@@ -989,6 +988,20 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener('resize', checkButtons);
 });
 </script>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("nav-menu");
+  menu.classList.toggle("active");
+}
 
+/* auto close saat klik menu */
+const links = document.querySelectorAll("#nav-menu a");
+
+links.forEach(link => {
+  link.onclick = function() {
+    document.getElementById("nav-menu").classList.remove("active");
+  }
+});
+</script>
 </body>
 </html>

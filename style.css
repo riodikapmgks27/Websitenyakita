@@ -396,6 +396,11 @@ color:white;
 section{
 scroll-margin-top:100px;
 }
+.nav-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
 .nav-container{
 display:flex;
 justify-content:space-between;
@@ -440,7 +445,30 @@ display:flex;
 font-size:28px;
 cursor:pointer;
 }
+@media (max-width: 768px) {
 
+  .btn-pesan {
+    display: block;
+    width: 90%; /* biar lebar */
+    margin: 10px auto; /* tengah */
+    text-align: center;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 16px;
+  }
+
+}
+@media (max-width: 768px) {
+
+  nav {
+    display: none;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+}
 /* FULLSCREEN MENU */
 
 .mobile-menu{
